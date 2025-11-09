@@ -2,24 +2,13 @@
 import { ref } from 'vue'
 
 
-// defineProps({
-//   msg: {
-//     type: String,
-//     required: true
-//   }
-// })
-
-const event = ref({
-    id: 5928101,
-    category: 'animal welfare',
-    title: 'Cat Adoption Day',
-    description: 'Find your new feline friend at this event.',
-    location: 'Meow Town',
-    date: 'January 28, 2022',
-    time: '12:00',
-    petsAllowed: true,
-    organizer: 'Kat Laydee',
+defineProps({
+    event: {
+        type: Object,
+        required: true,
+    }
 })
+
 
 
 </script>
@@ -43,7 +32,7 @@ const event = ref({
 }
 
 .event-card:hover {
-    transform: scale(1.01);
-    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.51);
+    box-shadow: 0 8px 16px 0 rgba(255, 11, 190, 0.995), 0 8px 24px 0 rgba(7, 232, 30, 0.995);
 }
 </style>
