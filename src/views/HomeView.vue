@@ -1,9 +1,9 @@
 <script setup>
+import EventCard from '../components/EventCard.vue';
 
 </script>
 
 <template>
-<main>
-  <div class="home"></div>
-</main>
+<div class="home"></div>
+<event-card>ABCD</event-card>
 </template>
