@@ -12,9 +12,12 @@ const router = createRouter({
       component: EventListView,
     },
     {
-      path: '/event/:id',
+      path: '/event/:id/:mode?',
       name: 'event-details',
-      props: true,
+      props: route => ({
+        id: route.params.id,
+        mode: route.params.mode || 'nopreference'
+      }),
       component: EventDetailsView,
     },
     {

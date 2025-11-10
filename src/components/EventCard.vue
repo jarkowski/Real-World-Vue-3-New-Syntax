@@ -10,12 +10,15 @@ defineProps({
 </script>
 
 <template>
-<RouterLink class="event-link" :to="{ name: 'event-details', params: { id: event.id } }">
-  <div v-if="event" class="event-card">
+<div v-if="event" class="event-card">
+  <RouterLink class="event-link" :to="{ name: 'event-details', params: { id: event.id, mode: 'normal' } }">
     <h2>{{ event.title }}</h2>
-    <span>@{{ event.time }} on {{ event.date }}</span>
-  </div>
-</RouterLink>
+  </RouterLink>
+  <RouterLink class="event-link" :to="{ name: 'event-details', params: { id: event.id, mode: 'more' } }">
+    <h3>Klick here to show more</h3>
+  </RouterLink>
+  <span>@{{ event.time }} on {{ event.date }}</span>
+</div>
 </template>
 
 <style scoped>
