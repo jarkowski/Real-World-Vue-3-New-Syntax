@@ -21,19 +21,10 @@ onMounted(() => {
 
 </script>
 <template>
-<RouterLink to="/event/123" class="event-link">
-    <div class="event-card">
+
+    <div v-if="event" class="event-card">
         <h2>{{ event.title }}</h2>
         <span>@{{ event.time }} on {{ event.date }}</span>
     </div>
-</RouterLink>
-</template>
 
-<style scoped>
-.event-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    /* optional, makes the whole div clickable cleanly */
-}
-</style>
+</template>
