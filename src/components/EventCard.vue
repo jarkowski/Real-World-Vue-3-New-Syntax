@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router'
 
 defineProps({
   event: {
@@ -10,15 +10,21 @@ defineProps({
 </script>
 
 <template>
-<div v-if="event" class="event-card">
-  <RouterLink class="event-link" :to="{ name: 'event-details', params: { id: event.id, mode: 'normal' } }">
-    <h2>{{ event.title }}</h2>
-  </RouterLink>
-  <RouterLink class="event-link" :to="{ name: 'event-details', params: { id: event.id, mode: 'more' } }">
-    <h3>Klick here to show more</h3>
-  </RouterLink>
-  <span>@{{ event.time }} on {{ event.date }}</span>
-</div>
+  <div v-if="event" class="event-card">
+    <RouterLink
+      class="event-link"
+      :to="{ name: 'event-details', params: { id: event.id, mode: 'normal' } }"
+    >
+      <h2>{{ event.title }}</h2>
+    </RouterLink>
+    <RouterLink
+      class="event-link"
+      :to="{ name: 'event-details', params: { id: event.id, mode: 'more' } }"
+    >
+      <h3>Klick here to show more</h3>
+    </RouterLink>
+    <span>@{{ event.time }} on {{ event.date }}</span>
+  </div>
 </template>
 
 <style scoped>

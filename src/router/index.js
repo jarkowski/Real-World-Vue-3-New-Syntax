@@ -14,9 +14,9 @@ const router = createRouter({
     {
       path: '/event/:id/:mode?',
       name: 'event-details',
-      props: route => ({
+      props: (route) => ({
         id: route.params.id,
-        mode: route.params.mode || 'nopreference'
+        mode: route.params.mode || 'nopreference',
       }),
       component: EventDetailsView,
     },

@@ -3,17 +3,17 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-<div id="layout">
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink v-bind:to="{ name: 'event-list' }">Events</RouterLink> |
-        <RouterLink v-bind:to="{ name: 'about' }">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <RouterView />
-</div>
+  <div id="layout">
+    <header>
+      <div class="wrapper">
+        <nav>
+          <RouterLink v-bind:to="{ name: 'event-list' }">Events</RouterLink> |
+          <RouterLink v-bind:to="{ name: 'about' }">About</RouterLink>
+        </nav>
+      </div>
+    </header>
+    <RouterView />
+  </div>
 </template>
 
 <style>
