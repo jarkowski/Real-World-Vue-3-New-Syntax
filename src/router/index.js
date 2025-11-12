@@ -6,11 +6,20 @@ import EventDetailsView from '../views/EventDetailsView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+
+
     {
       path: '/',
       name: 'event-list',
       component: EventListView,
+      props: route => ({ page: parseInt(route.query.page) || 1 })
     },
+
+
+
+
+
+
     {
       path: '/event/:id/:mode?',
       name: 'event-details',
