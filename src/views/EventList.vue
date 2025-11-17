@@ -1,6 +1,6 @@
 <script setup>
 import EventCard from '@/components/EventCard.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import EventService from '@/services/EventService'
 
 const props = defineProps(['page'])
@@ -20,6 +20,16 @@ const fetchEvents = () => {
 onMounted(() => {
   fetchEvents()
 })
+
+watch(
+  () => props.page,
+  () => {
+    events.value = null
+    fetchEvents()
+  }
+)
+
+
 </script>
 
 <template>
