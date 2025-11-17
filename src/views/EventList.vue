@@ -18,8 +18,8 @@ const totalPages = computed(() => Math.ceil((Number(totalEvents.value) || 0) / p
 
 // optional: log when totalEvents changes (for debugging)
 watch(totalEvents, (val) => {
-console.log('totalEvents updated ->', val);
-console.log('totalPages now ->', totalPages.value);
+  console.log('totalEvents updated ->', val);
+  console.log('totalPages now ->', totalPages.value);
 });
 
 
@@ -56,17 +56,19 @@ watch(
   <EventCard v-for="event in events" :key="event.id" :event="event" />
   <div class="pagination">
     <router-link id="page-prev" :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
-      &#60; Previos</router-link>
+      &#60; Previos | </router-link>
 
-
-
-
+    <span v-for="n in totalPages">
+      <router-link :to="{ name: 'event-list', query: { page: n } }">
+        {{ n }} | 
+      </router-link>
+    </span>
 
     <router-link id="page-next" :to="{ name: 'event-list', query: { page: page + 1 } }" v-if="hasNextPage" rel="next">
-      Next &#62;
+       Next &#62;
     </router-link>
-        <p>Total Pages: {{ totalPages }}
-     | Total Events: {{ totalEvents }}</p>
+    <p>Total Pages: {{ totalPages }}
+      | Total Events: {{ totalEvents }}</p>
 
   </div>
 </div>
