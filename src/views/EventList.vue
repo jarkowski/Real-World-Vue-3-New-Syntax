@@ -52,7 +52,7 @@ watch(
 
 <template>
 <h1>Events For Good</h1>
-<div class="events">
+<div class="events"> 
   <EventCard v-for="event in events" :key="event.id" :event="event" />
   <div class="pagination">
     <router-link class="active" id="page-prev" :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev"
