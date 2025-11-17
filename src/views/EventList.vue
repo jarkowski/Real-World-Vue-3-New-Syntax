@@ -55,20 +55,22 @@ watch(
 <div class="events">
   <EventCard v-for="event in events" :key="event.id" :event="event" />
   <div class="pagination">
-    <router-link id="page-prev" :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
-      &#60; Previos | </router-link>
+    <router-link class="active" id="page-prev" :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
+      &#60; Previos</router-link> |
 
     <span v-for="n in totalPages">
       <router-link :to="{ name: 'event-list', query: { page: n } }">
-        {{ n }} | 
+        <span :class="page === n ? 'active' : 'inactive'">
+          {{ n }}
+        </span> |
       </router-link>
     </span>
 
-    <router-link id="page-next" :to="{ name: 'event-list', query: { page: page + 1 } }" v-if="hasNextPage" rel="next">
-       Next &#62;
+    <router-link class="active" id="page-next" :to="{ name: 'event-list', query: { page: page + 1 } }" v-if="hasNextPage" rel="next">
+      Next &#62;
     </router-link>
     <p>Total Pages: {{ totalPages }}
-      | Total Events: {{ totalEvents }}</p>
+      | Total Events: {{ totalEvents }} | Current page: {{ page }}</p>
 
   </div>
 </div>
@@ -93,5 +95,23 @@ watch(
 
 #page-next {
   text-align: right;
+}
+
+.active {
+  font-weight: bold;
+  color: red;
+  border-style: solid;
+  border-radius: 4px;
+  border-spacing: 4px;
+  padding: 6px;
+}
+
+.inactive {
+
+  color: rgb(0, 0, 0);
+  border-style: solid;
+  border-radius: 4px;
+  border-spacing: 4px;
+  padding: 6px;
 }
 </style>
