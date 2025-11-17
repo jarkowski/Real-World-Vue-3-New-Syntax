@@ -55,18 +55,20 @@ watch(
 <div class="events">
   <EventCard v-for="event in events" :key="event.id" :event="event" />
   <div class="pagination">
-    <router-link class="active" id="page-prev" :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev" v-if="page != 1">
+    <router-link class="active" id="page-prev" :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev"
+      v-if="page != 1">
       &#60; Previos</router-link> |
 
     <span v-for="n in totalPages">
       <router-link :to="{ name: 'event-list', query: { page: n } }">
-        <span :class="page === n ? 'active' : 'inactive'">
+        <span :id="`page-${n}`" :class="page === n ? 'active' : 'inactive'">
           {{ n }}
         </span> |
       </router-link>
     </span>
 
-    <router-link class="active" id="page-next" :to="{ name: 'event-list', query: { page: page + 1 } }" v-if="hasNextPage" rel="next">
+    <router-link class="active" id="page-next" :to="{ name: 'event-list', query: { page: page + 1 } }"
+      v-if="hasNextPage" rel="next">
       Next &#62;
     </router-link>
     <p>Total Pages: {{ totalPages }}
